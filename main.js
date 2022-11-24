@@ -19,6 +19,7 @@ var player2Win = 0;
 
 rollBtn1.addEventListener('click', getRandom1);
 rollBtn2.addEventListener('click', getRandom2);
+playAgainBtn.addEventListener('click', playAgain)
 
 function getRandom1() {
   img1.src = `./images/dice${randomNumber1}.png`
@@ -57,6 +58,21 @@ function displayWinner() {
     console.log(`It's a draw!`)
   }
 } 
+
+function playAgain() {
+  if(btn1Clicked && btn2Clicked) {
+    btn1Clicked = false;
+    btn2Clicked = false;
+    rollBtn1.style.visibility = 'visible'
+    rollBtn2.style.visibility = 'visible'
+    randomNumber1 = Math.floor(Math.random() * 6) + 1;
+    randomNumber2 = Math.floor(Math.random() * 6) + 1;
+  } else {
+    alert("Both player's must roll to play again")
+  }
+}
+
+
 
 
 
