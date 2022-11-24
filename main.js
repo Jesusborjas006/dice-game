@@ -14,18 +14,23 @@ var randomNumber2 = Math.floor(Math.random() * 6) + 1;
 var btn1Clicked = false;
 var btn2Clicked = false;
 
+var player1Win = 0;
+var player2Win = 0;
+
 rollBtn1.addEventListener('click', getRandom1);
 rollBtn2.addEventListener('click', getRandom2);
 
 function getRandom1() {
   img1.src = `./images/dice${randomNumber1}.png`
   btn1Clicked = true
+  rollBtn1.style.visibility = 'hidden'
   declareWinner()
 }
 
 function getRandom2() {
   img2.src = `./images/dice${randomNumber2}.png`
   btn2Clicked = true
+  rollBtn2.style.visibility = 'hidden'
   declareWinner()
 }
 
@@ -39,15 +44,21 @@ function declareWinner() {
 function displayWinner() {
   if(randomNumber1 > randomNumber2) {
     heading.innerHTML = 'Player 1 Wins!'
+    player1Win++
+    score1.innerHTML = `${player1Win} Win/s`
     console.log('Player 1 Wins!')
   } else if(randomNumber2 > randomNumber1) {
     heading.innerHTML = 'Player 2 Wins!'
+    player2Win++
+    score2.innerHTML = `${player2Win} Win/s`
     console.log('Player 2 Wins!')
   } else {
     heading.innerHTML = `It's a draw!`
     console.log(`It's a draw!`)
   }
 } 
+
+
 
 
 
