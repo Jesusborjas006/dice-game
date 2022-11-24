@@ -10,16 +10,15 @@ var img2 = document.querySelector('.img-2')
 
 var randomNumber1 = Math.floor(Math.random() * 6) + 1;
 var randomNumber2 = Math.floor(Math.random() * 6) + 1;
-
 var btn1Clicked = false;
 var btn2Clicked = false;
-
 var player1Win = 0;
 var player2Win = 0;
 
 rollBtn1.addEventListener('click', getRandom1);
 rollBtn2.addEventListener('click', getRandom2);
-playAgainBtn.addEventListener('click', playAgain)
+playAgainBtn.addEventListener('click', playAgain);
+resetBtn.addEventListener('click', resetGame);
 
 function getRandom1() {
   img1.src = `./images/dice${randomNumber1}.png`
@@ -70,6 +69,22 @@ function playAgain() {
   } else {
     alert("Both player's must roll to play again")
   }
+}
+
+function resetGame() {
+  player1Win = 0;
+  player2Win = 0;
+  score1.innerHTML = `${player1Win} Win/s`;
+  score2.innerHTML = `${player1Win} Win/s`;
+  btn1Clicked = false;
+  btn2Clicked = false;
+  rollBtn1.style.visibility = 'visible';
+  rollBtn2.style.visibility = 'visible';
+  randomNumber1 = Math.floor(Math.random() * 6) + 1;
+  randomNumber2 = Math.floor(Math.random() * 6) + 1;
+  heading.innerHTML = 'Both Roll Dice!';
+  img1.src = `./images/dice1.png`;
+  img2.src = `./images/dice1.png`;
 }
 
 
