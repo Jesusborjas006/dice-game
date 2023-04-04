@@ -1,5 +1,7 @@
 # dice-game
 
+## [Check out site here!](https://dice-game-three-tau.vercel.app/)
+
 ### Abstract: 
 This is an app to be able to play a dice game against your friends!
 
